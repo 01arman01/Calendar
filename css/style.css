@@ -68,22 +68,40 @@ font-weight: 600;
 .calendar .days{
     margin-bottom: 20px;
 }
+
+.calendar ul li {
+    position: relative;
+    width: calc(100%/7);
+
+}
 .calendar .days li {
+    z-index: 1;
     margin-top: 30px;
     cursor: pointer;
 }
-.calendar ul li {
-    width: calc(100%/7);
-    position: relative;
+.calendar .days li.inactive {
+    color: #aaa;
 }
-.calendar .days li::before{
-    border-radius: 50%;
+.calendar .days  li.active {
+   color: #fff;
+}
+
+.calendar .days li:before{
     position: absolute;
-    content:"";
+    content:" ";
     height: 40px;
     width: 40px;
     background: #f2f2f2;
     top: 50%;
     left: 50%;
+    border-radius: 50%;
+    z-index: -1;
     transform: translate(-50%, -50%);
+}
+.days li:hover:before {
+    background: #ded3d3;
+
+}
+.calendar .days  li.active::before {
+  background: #9b59b6;
 }
